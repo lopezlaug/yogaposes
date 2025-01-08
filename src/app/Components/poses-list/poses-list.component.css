@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-wrapper button.active {
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  object-fit: cover;
+}

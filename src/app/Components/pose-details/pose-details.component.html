@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div *ngIf="pose" class="row_animate_animated animate_bounce_animate_fadeIn">
+    <div class="col-md-9">
+      <h2><strong>English name: </strong>{{ pose.english_name }}</h2>
+      <img
+        style="width: 40%; height: 40%"
+        src="{{ pose.url_png }}"
+        class="rounded"
+        alt="{{ pose.english_name }}"
+      />
+
+      <h6>
+        <strong>Sanskrit name adapted: </strong>{{ pose.sanskrit_name_adapted }}
+      </h6>
+      <h6><strong>Sanskrit name: </strong>{{ pose.sanskrit_name }}</h6>
+      <button (click)="showDetails()" class="btn btn-outline-info my-3">
+        {{ buttonText }}
+      </button>
+      <div class="mode-details" *ngIf="detailVisible">
+        <!-- <mat-tree>
+  <mat-tree-node> parent node </mat-tree-node>
+  <mat-tree-node> -- child node1 </mat-tree-node>
+  <mat-tree-node> -- child node2 </mat-tree-node>
+</mat-tree> -->
+
+        <p><strong>Pose description: </strong>{{ pose.pose_description }}</p>
+        <p><strong>Pose benefits: </strong>{{ pose.pose_benefits }}</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <a class="btn btn-outline-secondary" routerLink="/">Back</a>
+    </div>
+  </div>
+</div>

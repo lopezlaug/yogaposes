@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="header my-4">
+    <h1>Yoga Poses List</h1>
+
+    <div class="button-wrapper">
+      <button
+        (click)="showList()"
+        [ngClass]="listVisible ? 'active' : ''"
+        class="btn btn-outline-primary"
+      >
+        list
+      </button>
+      <button
+        (click)="showGallery()"
+        [ngClass]="galleryVisible ? 'active' : ''"
+        class="btn btn-outline-primary"
+      >
+        gallery
+      </button>
+    </div>
+  </div>
+  <ul class="list-group" *ngIf="listVisible">
+    <a
+      *ngFor="let pose of poses"
+      [routerLink]="['/pose', pose.id]"
+      class="list-group-item list-group-item-action animate_animated animate_bounce animate_fadeIn"
+    >
+      {{ pose.english_name }}
+    </a>
+  </ul>
+
+  <div class="gallery container text-center" *ngIf="galleryVisible">
+    <div
+      class="row row-cols-3 g-5 l animate_animated animate_bounce animate_fadeIn"
+    >
+      <div
+        class="col image-wrapper"
+        *ngFor="let pose of poses"
+        [routerLink]="['/pose', pose.id]"
+      >
+        <img
+          style="width: 100%; height: 100%"
+          src="{{ pose.url_png }}"
+          alt="{{ pose.english_name }}"
+        />
+      </div>
+    </div>
+  </div>
+</div>
